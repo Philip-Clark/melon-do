@@ -13,3 +13,5 @@ function Main() {
 document.body.appendChild(Nav());
 document.body.appendChild(Main());
 document.body.appendChild(Footer());
+
+// https://gist.github.com/cobyism/4730490
