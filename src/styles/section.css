@@ -1,0 +1,42 @@
+section {
+  margin: 10em 0;
+}
+
+section p {
+  padding: 2em 0 5em;
+  border-bottom: dashed 0.4em #fec20b;
+}
+
+@media (min-width: 50em) {
+  section {
+    display: flex;
+    gap: 4em;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  section p {
+    padding: 2em 0 1em;
+    border-top: dashed 0.4em #fec20b;
+    border-bottom: none;
+  }
+
+  section:nth-of-type(even) p {
+    padding-left: 1em;
+    border-left: solid 0.5em #fec20b;
+  }
+  section:nth-of-type(odd) p {
+    padding-right: 1em;
+    border-right: solid 0.5em #fec20b;
+  }
+
+  section:nth-of-type(odd) {
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+  section img {
+    width: 50%;
+  }
+}
