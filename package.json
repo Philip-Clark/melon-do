@@ -1,7 +1,7 @@
 {
-  "name": "restaurant",
+  "name": "Mellon Do",
   "version": "1.0.0",
-  "description": "",
+  "description": "A watermelon themed To-Do app.",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

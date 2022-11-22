@@ -1,2 +1,3 @@
-# webpack-restaurant
-A website built to learn webpack
+# Melon Do
+
+A website built to practice OOP principles
