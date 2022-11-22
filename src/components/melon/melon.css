@@ -1,0 +1,18 @@
+#melonTop {
+  top: -100px;
+  width: 100vw;
+  max-width: 40ch;
+  transform: scale(1.8);
+  margin: 0 auto;
+  z-index: -1;
+}
+
+#melonTop {
+  filter: drop-shadow(6px 6px #201f28);
+}
+
+#melonDiv h1 {
+  color: #202026;
+  font-size: 2em;
+  transform: translate(0, -125%);
+}

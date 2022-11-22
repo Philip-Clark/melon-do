@@ -1,53 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+  --randRotation: 5deg;
+  --horiTranslate: 10px;
+  --vertiTranslate: 10px;
+}
 body,
 html {
+  font-family: 'Righteous', cursive;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
+  letter-spacing: 0.1em;
+  font-weight: 100;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #171a23;
-  color: white;
-  width: 100vw;
+  background-color: #36343f;
 }
 
 main {
-  max-width: 60ch;
-  margin: 0 auto;
-  padding: 1em;
-  font-size: 20px;
+  margin: 0 1em;
+}
+.shadow {
+  box-shadow: #201f28 0.4rem 0.4rem 0;
+}
+button {
+  padding: 0.5em;
+  background-color: transparent;
+  border: none;
+}
+button img {
+  transition: all 0.1s cubic-bezier(0, 1.79, 0.84, 0.87);
+  transform: rotate(0deg) scale(1);
+
+  filter: drop-shadow(6px 6px #201f28);
 }
 
-h1 {
-  color: #fec20b;
+button:hover img {
+  filter: drop-shadow(12px 12px #201f28);
+  transform: rotate(var(--randRotation)) scale(1.1);
 }
 
-img {
-  width: 90%;
+button:active img {
+  transition: all 0.01s;
+  transform: rotate(0deg) scale(1);
+
+  filter: drop-shadow(6px 6px #201f28);
 }
 
-#fader {
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
+#addButton {
+  background-color: transparent;
+  border: none;
   position: absolute;
-  z-index: 10;
-}
-
-@media (min-width: 50em) {
-  main {
-    max-width: 90ch;
-  }
-}
-
-@keyframes fade {
-  from {
-    background-color: #171a23;
-  }
-  to {
-    background-color: transparent;
-  }
+  bottom: 1em;
+  transform: translateX(-50%);
 }
