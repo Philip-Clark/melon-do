@@ -114,7 +114,7 @@ export const lists = [
     title: 'list 4',
     items: [
       {
-        title: 'Clean interior of Lamborghini',
+        title: 'Clean interior of bronco',
         description:
           'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
         completed: false,
