@@ -4,6 +4,7 @@ import listCard from '../listCard/listCard';
 import { focusCard, randomlyPlace } from '../../focuser';
 import { size } from 'lodash';
 import { lists } from '../../lists';
+import addCard from '../addCard/addCard';
 
 const { createElement } = require('../../createHtmlFromTemplate');
 
@@ -15,18 +16,29 @@ const listCardTemplate = createElement(
   
   `
 );
+let cardCount = 0;
+let content = undefined;
 
 const stack = (list) => {
-  const content = listCardTemplate.cloneNode(true);
-  list.reverse().forEach((item, index) => {
-    const card = content.appendChild(listCard(item, false));
-    card.id = index;
-    if (index == lists.length - 1) card.setAttribute('current', true);
+  content = listCardTemplate.cloneNode(true);
 
-    randomlyPlace(card);
+  const addListCard = content.appendChild(addCard());
+  addListCard.id = 'add';
+  addListCard.style.zIndex = '100';
+  randomlyPlace(addListCard);
+
+  list.reverse().forEach((item, index) => {
+    addCardToStack(listCard(item));
   });
 
   return content;
+};
+
+export const addCardToStack = (card) => {
+  const newCard = content.appendChild(card);
+  card.style.zIndex = cardCount;
+  randomlyPlace(card);
+  cardCount++;
 };
 
 export default stack;

@@ -1,0 +1,11 @@
+.addCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#addButton {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}

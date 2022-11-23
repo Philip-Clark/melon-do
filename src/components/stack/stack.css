@@ -1,11 +1,13 @@
-#stack .listCard {
+/* #stack .listCard {
   position: absolute;
-}
+} */
 
 #stack {
   position: relative;
   /* margin-top: 100%; */
+  flex-direction: column;
   height: fit-content;
   display: flex;
+  align-items: center;
   justify-content: center;
 }

@@ -1,171 +1,73 @@
-export const lists = [
+const defualtList = [
   {
-    title: 'List 1',
+    title: "Melow's chores",
+    id: 0,
     items: [
       {
-        title: 'Clean interior of Lamborghini',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 0,
+        title: 'Hug a kitten',
         completed: false,
       },
       {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 1,
+
+        title: 'Light a candle',
         completed: false,
       },
       {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 2,
+
+        title: 'Eat a watermelon',
         completed: false,
       },
       {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 3,
+
+        title: 'Watch a movie with friends',
         completed: false,
       },
       {
-        title: 'Clean interior of Lamborghini',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 4,
+
+        title: 'Hike to a waterfall',
         completed: false,
       },
       {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 5,
+
+        title: 'Water the houseplants',
         completed: false,
       },
       {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-    ],
-  },
-  {
-    title: 'List 2',
-    items: [
-      {
-        title: 'Clean interior of Lamborghini',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-    ],
-  },
-  {
-    title: 'List 3',
-    items: [
-      {
-        title: 'Clean interior of Lamborghini',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-    ],
-  },
-  {
-    title: 'list 4',
-    items: [
-      {
-        title: 'Clean interior of bronco',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-    ],
-  },
-  {
-    title: 'list 5',
-    items: [
-      {
-        title: 'Clean interior of Lamborghini',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Mock up website',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Read about the worlds smallest bat',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
-        completed: false,
-      },
-      {
-        title: 'Have lunch with a chameleon at the park on 11th street',
-        description:
-          'Velit enim adipisicing consectetur quis sint ut excepteur nostrud fugiat occaecat.',
+        id: 6,
+
+        title: 'Throw a birthday party for Pump Kim',
         completed: false,
       },
     ],
   },
 ];
+
+export const setListItemCompleted = (listId, itemId, completed) => {
+  const storedData = getLists();
+  storedData.find((x) => x.id === listId).items.find((x) => x.id === itemId).completed = completed;
+  saveLists(storedData);
+};
+
+export const deleteList = (listId) => {
+  const storedData = getLists();
+  storedData.splice(storedData.indexOf(storedData.find((x) => x.id === listId)), 1);
+  saveLists(storedData);
+};
+
+export const getLists = () => {
+  return JSON.parse(localStorage.getItem('lists'));
+};
+
+export const saveLists = (data = lists) => {
+  console.log('SAVED : ', data);
+  localStorage.setItem('lists', JSON.stringify(data));
+};
+
+export let lists = getLists() == null ? defualtList : getLists();
+saveLists();

@@ -1,10 +1,12 @@
 import Melon from './components/melon/melon.js';
-import add from './images/addButton.svg';
 import { randomRotation } from './applyRandRotation.js';
 import './styles/main.css';
 import listCard from './components/listCard/listCard.js';
-import { lists } from './lists.js';
+import { getLists, lists } from './lists.js';
 import stack from './components/stack/stack.js';
+import addModal from './components/addModal/addModal.js';
+import addListModal from './components/addModal/addModal.js';
+import addListItemModal from './components/addModal/addItemModal.js';
 
 const { createElement } = require('./createHtmlFromTemplate');
 
@@ -13,7 +15,6 @@ const mainTemplate = createElement(
   
 <main>
   <div id="listContainer"></div>
-  <button id="addButton"><img id="addButtonImg"></button>
 </main>
 
 
@@ -23,12 +24,10 @@ const mainTemplate = createElement(
 
 const Main = () => {
   const content = mainTemplate.cloneNode(true);
-  content.querySelector('#addButtonImg').src = add;
-  content.querySelector('#addButton').addEventListener('mouseenter', () => randomRotation(20));
-  content.querySelector('#addButton').addEventListener('click', () => randomRotation(20));
-
+  getLists();
   content.append(stack(lists));
-
+  content.appendChild(addListModal());
+  content.appendChild(addListItemModal());
   return content;
 };
 document.body.append(Melon());

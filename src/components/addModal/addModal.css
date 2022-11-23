@@ -1,0 +1,29 @@
+dialog::backdrop {
+  background-color: #36343f;
+}
+
+dialog {
+  background-color: #4c4952;
+  width: 80vw;
+  max-width: 60ch;
+  border: solid 3px #6f6c7c;
+  border-radius: 1.5em;
+  /* max-width: 30em; */
+  padding: 2em;
+  color: #ffffff;
+  transition: transform 0.5s cubic-bezier(0.35, 1.43, 0.68, 0.93), filter 0.8s ease;
+}
+
+input {
+  background-color: #36343f;
+  border: solid 3px #6f6c7c;
+  border-radius: 1.5em;
+  padding: 0.4em 0.8em;
+  color: white;
+}
+
+dialog form {
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+}

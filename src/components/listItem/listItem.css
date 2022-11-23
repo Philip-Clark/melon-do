@@ -2,13 +2,12 @@
   background-color: #4c4952;
   border: solid 3px #6f6c7c;
   border-radius: 1.5em;
-  height: 100%;
   display: flex;
   font-size: 0.7em;
   justify-content: center;
   align-items: center;
   padding: 0 0.5em;
-  transition: all 0.2s cubic-bezier(0, 1.79, 0.84, 0.87);
+  transition: transform 0.2s cubic-bezier(0, 1.79, 0.84, 0.87);
 }
 
 .listItem h3 {
@@ -26,13 +25,13 @@
 }
 
 .listItem {
-  transition: all 0.2s cubic-bezier(0, 1.79, 0.84, 0.87);
   transform: rotate(0deg) scale(1);
   cursor: default;
+  height: 3.5em;
 }
 
 .listItem:hover {
-  filter: drop-shadow(12px 12px #201f28);
+  /* filter: drop-shadow(12px 12px #201f28); */
   transform: rotate(var(--randRotation)) scale(1.1);
   z-index: 2;
 }
@@ -41,5 +40,36 @@
   transition: all 0.01s;
   transform: rotate(0deg) scale(1);
 
-  filter: drop-shadow(6px 6px #201f28);
+  /* filter: drop-shadow(6px 6px #201f28); */
+}
+
+.itemsContainer {
+  max-width: 80vw;
+}
+
+/* Default for first 4 items when list not expanded */
+.itemsContainer[expanded='false'] .listItem:nth-of-type(-n + 4) {
+  opacity: 1;
+  height: 3.5em;
+  margin: 0.5em 0;
+
+  visibility: visible;
+}
+/* Default for items when list not expanded */
+.itemsContainer[expanded='false'] .listItem {
+  opacity: 0;
+  height: 0px;
+  visibility: hidden;
+}
+/* style for items when list is expanded */
+.itemsContainer[expanded='true'] .listItem {
+  margin: 0.8em 0;
+  opacity: 1;
+  height: 3.5em;
+}
+
+@media (min-width: 375px) {
+  .itemsContainer {
+    grid-template-columns: repeat(auto-fill, min(200px, 47%));
+  }
 }
