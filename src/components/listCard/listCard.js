@@ -66,7 +66,7 @@ const listCard = (list) => {
   });
 
   const renderChildren = (array) => {
-    list.items.forEach((item, index) => listContainer.appendChild(listItem(item, list.id)));
+    list.items.forEach((item, index) => listContainer.appendChild(listItem(item, list)));
     listContainer.appendChild(addListItem(list));
   };
 
@@ -82,10 +82,9 @@ const listCard = (list) => {
 };
 
 export const addItemToList = (item, id) => {
-  console.log(id);
   const content = document.getElementById(id.id);
   const listContainer = content.querySelector('.itemsContainer');
-  listContainer.prepend(listItem(item, item.id));
+  listContainer.prepend(listItem(item, id));
   if (listContainer.children.length >= 4)
     content.querySelector('#seeMore p').style.visibility = 'visible';
 };

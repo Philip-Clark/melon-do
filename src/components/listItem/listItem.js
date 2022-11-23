@@ -24,7 +24,8 @@ const listItem = (data, listId) => {
   content.addEventListener('click', () => {
     completed = !completed;
     randomRotation(5);
-    setListItemCompleted(listId, data.id, completed);
+    console.log(listId.id, data.id);
+    setListItemCompleted(listId.id, data.id, completed);
     content.setAttribute('completed', completed);
   });
   content.setAttribute('completed', completed);

@@ -50,6 +50,8 @@ const defualtList = [
 
 export const setListItemCompleted = (listId, itemId, completed) => {
   const storedData = getLists();
+  console.log(storedData);
+  console.log(listId, itemId);
   storedData.find((x) => x.id === listId).items.find((x) => x.id === itemId).completed = completed;
   saveLists(storedData);
 };

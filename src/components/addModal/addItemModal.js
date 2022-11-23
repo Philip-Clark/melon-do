@@ -13,7 +13,7 @@ const melonTemplate = createElement(
   <h3>Add a Task</h3>
   <form method="dialog"><label>Task Name</label>
   <input type="text" minlength="1" id="taskName" name="listName" placeholder="My Task" maxlength="120">
-  <button id="addButton" method="dialog"><img id="addButtonImg"></button>
+  <button id="addButton" method="submit"><img id="addButtonImg"></button>
 
   
 </form>
