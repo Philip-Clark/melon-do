@@ -1,6 +1,6 @@
 import './addModal.css';
 import add from '../.././images/addButton.svg';
-import { lists, saveLists } from '../../lists';
+import { getLists, lists, saveLists } from '../../lists';
 import { randomRotation } from '../../applyRandRotation';
 import { addCardToStack } from '../stack/stack';
 import { addItemToList } from '../listCard/listCard';
@@ -30,15 +30,21 @@ const addListItemModal = () => {
   content.querySelector('#addButton').addEventListener('mouseenter', () => randomRotation(20));
   content.querySelector('#addButton').addEventListener('click', () => {
     randomRotation(20);
-    console.log('SADASDASDAS', id);
+    console.log('listID', id);
     const newListItem = {
       id: Date.now(),
       title: content.querySelector('#taskName').value,
       completed: false,
     };
-    console.log(lists.indexOf(id));
-    lists[lists.indexOf(id)].items.push(newListItem);
-    saveLists();
+    const list = getLists();
+    console.log(
+      list,
+      list.find((x) => x.id === id.id),
+      id
+    );
+    list.find((x) => x.id === id.id).items.push(newListItem);
+    saveLists(list);
+
     addItemToList(newListItem, id);
   });
 
